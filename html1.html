@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Candle Animation</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #0b0c10;
+      margin: 0;
+    }
+
+    .candle-container {
+      position: relative;
+      width: 50px;
+      height: 150px;
+    }
+
+    .candle {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #d65a31;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255, 140, 0, 0.5);
+    }
+
+    .wick {
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      width: 4px;
+      height: 20px;
+      background-color: #444;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    .flame {
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      width: 20px;
+      height: 40px;
+      background: radial-gradient(circle at bottom, #ffdd00, #ff7f00, transparent);
+      opacity: 0;
+      transform: translateX(-50%) scale(0.8);
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      animation: flicker 0.15s infinite alternate;
+    }
+
+    @keyframes flicker {
+      0% {
+        opacity: 0.8;
+        transform: translateX(-50%) scale(1);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(-50%) scale(1.2);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="candle-container">
+  <div class="candle">
+    <div class="wick"></div>
+    <div class="flame" id="flame"></div>
+  </div>
+</div>
+
+<script>
+  const flame = document.getElementById('flame');
+
+  function animateFlame() {
+    flame.style.animationDuration = `${Math.random() * 0.1 + 0.1}s`;
+    requestAnimationFrame(animateFlame);
+  }
+
+  animateFlame();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oninput Event Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        #output {
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            min-height: 50px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Type Something:</h1>
+    <input type="text" id="userInput" placeholder="Type here...">
+    <div id="output">Your text will appear here...</div>
+</div>
+
+<script>
+    // Wait for the DOM to fully load
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get references to the elements
+        const userInputElement = document.getElementById('userInput');
+        const outputElement = document.getElementById('output');
+
+        // Add the event listener for the 'input' event
+        userInputElement.addEventListener('input', function() {
+            // Get the current value of the input field
+            const userInputValue = userInputElement.value;
+
+            // Update the output element with the current value of the input field
+            outputElement.textContent = userInputValue || 'Your text will appear here...';
+        });
+    });
+</script>
+
+</body>
+</html>
