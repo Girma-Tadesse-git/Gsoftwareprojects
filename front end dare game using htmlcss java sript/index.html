@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dare Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Dare Game</h1>
+
+    <!-- Player Setup -->
+    <div id="setup">
+      <h2>Setup Players</h2>
+      <label for="playerCount">Number of Players:</label>
+      <input type="number" id="playerCount" min="2" value="2">
+      <button id="startSetup">Start</button>
+    </div>
+
+    <!-- Dare Input -->
+    <div id="dareInput" style="display: none;">
+      <h2>Write Dares</h2>
+      <div id="playerForms"></div>
+      <button id="startGame">Start Game</button>
+    </div>
+
+    <!-- Gameplay -->
+    <div id="gameplay" style="display: none;">
+      <h2>Gameplay</h2>
+      <p><strong>Current Player:</strong> <span id="currentPlayer"></span></p>
+      <button id="drawCard">Draw Card</button>
+      <p id="currentDare"></p>
+    </div>
+
+    <!-- Restart Popup -->
+    <div id="restartPopup" style="display: none;">
+      <p>All cards have been drawn! Restart the game?</p>
+      <button id="restartYes">Yes</button>
+      <button id="restartNo">No</button>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
